@@ -1,0 +1,426 @@
+kleurnaam,artikelnummer,reeks,volledig_nummer,in_voorraad,aantal,bestellen,aantal_bestellen,gewenst_aantal
+Model Air - Yellow,002,Model Air,71.002,Ja,1,Nee,0,0
+Model Air - Scarlet Red,003,Model Air,71.003,Ja,2,Nee,0,0
+Model Air - Blue,004,Model Air,71.004,Ja,3,Nee,0,0
+Model Air - Intermediate Blue,005,Model Air,71.005,Nee,0,Nee,0,0
+Model Air - Camouflage Light Green,006,Model Air,71.006,Ja,1,Nee,0,0
+Model Air - Olive Green,007,Model Air,71.007,Ja,3,Nee,0,0
+Model Air - Pale Blue,008,Model Air,71.008,Nee,0,Nee,0,0
+Model Air - Duck Egg Green,009,Model Air,71.009,Nee,0,Nee,0,0
+Model Air - Interior Green,010,Model Air,71.010,Nee,0,Nee,0,0
+Model Air - Tank Green,011,Model Air,71.011,Ja,1,Nee,0,0
+Model Air - Dark Green,012,Model Air,71.012,Nee,0,Nee,0,0
+Model Air - Yellow Olive,013,Model Air,71.013,Ja,1,Nee,0,0
+Model Air - Gunship Green,014,Model Air,71.014,Nee,0,Nee,0,0
+Model Air - Olive Grey,015,Model Air,71.015,Ja,1,Nee,0,0
+Model Air - US Dark Green,016,Model Air,71.016,Ja,2,Nee,0,0
+Model Air - Russian Green,017,Model Air,71.017,Nee,0,Nee,0,0
+Model Air - Camouflage Black Green,018,Model Air,71.018,Nee,0,Nee,0,0
+Model Air - Camouflage Dark Green,019,Model Air,71.019,Nee,0,Nee,0,0
+Model Air - German Green,020,Model Air,71.020,Nee,0,Nee,0,0
+Model Air - Black Green,021,Model Air,71.021,Nee,0,Nee,0,0
+Model Air - Camouflage Green,022,Model Air,71.022,Ja,1,Nee,0,0
+Model Air - Hemp,023,Model Air,71.023,Ja,3,Nee,0,0
+Model Air - Khaki Brown,024,Model Air,71.024,Ja,1,Nee,0,0
+Model Air - Dark Yellow,025,Model Air,71.025,Ja,1,Nee,0,0
+Model Air - US Flat Brown,026,Model Air,71.026,Nee,0,Nee,0,0
+Model Air - Light Brown,027,Model Air,71.027,Ja,1,Nee,0,0
+Model Air - Sand Yellow,028,Model Air,71.028,Ja,2,Nee,0,0
+Model Air - Dark Earth,029,Model Air,71.029,Nee,0,Nee,0,0
+Model Air - Green Brown,030,Model Air,71.030,Nee,0,Nee,0,0
+Model Air - Middle Stone,031,Model Air,71.031,Nee,0,Nee,0,0
+Model Air - Golden Brown,032,Model Air,71.032,Nee,0,Nee,0,0
+Model Air - Ochre,033,Model Air,71.033,Ja,2,Nee,0,0
+Model Air - Sandy Brown,034,Model Air,71.034,Nee,0,Nee,0,0
+Model Air - Camouflage Light Brown,035,Model Air,71.035,Nee,0,Nee,0,0
+Model Air - Mahagony,036,Model Air,71.036,Nee,0,Nee,0,0
+Model Air - Mud Brown,037,Model Air,71.037,Ja,1,Nee,0,0
+Model Air - Camouflage Medium Brown,038,Model Air,71.038,Ja,1,Nee,0,0
+Model Air - Hull Red,039,Model Air,71.039,Nee,0,Nee,0,0
+Model Air - Burnt Umber,040,Model Air,71.040,Nee,0,Nee,0,0
+Model Air - Tank Brown,041,Model Air,71.041,Nee,0,Nee,0,0
+Model Air - Camouflage Black Brown,042,Model Air,71.042,Nee,0,Nee,0,0
+Model Air - Olive Drab,043,Model Air,71.043,Ja,1,Nee,0,0
+Model Air - Light Grey Green,044,Model Air,71.044,Ja,2,Nee,0,0
+Model Air - US Grey Light,045,Model Air,71.045,Ja,3,Nee,0,0
+Model Air - Pale Grey Blue,046,Model Air,71.046,Nee,0,Nee,0,0
+Model Air - US Grey,047,Model Air,71.047,Ja,1,Nee,0,0
+Model Air - Dark Sea Grey,048,Model Air,71.048,Ja,1,Nee,0,0
+Model Air - Medium Sea Grey,049,Model Air,71.049,Ja,1,Nee,0,0
+Model Air - Light Grey,050,Model Air,71.050,Ja,1,Nee,0,0
+Model Air - Barley Grey,051,Model Air,71.051,Nee,0,Nee,0,0
+Model Air - German Grey,052,Model Air,71.052,Ja,1,Nee,0,0
+Model Air - Dark Seagreen,053,Model Air,71.053,Nee,0,Nee,0,0
+Model Air - Dark Grey Blue,054,Model Air,71.054,Ja,1,Nee,0,0
+Model Air - Black Grey RLM66,055,Model Air,71.055,Ja,1,Nee,0,0
+Model Air - Black Grey,056,Model Air,71.056,Ja,2,Nee,0,0
+Model Air - Black,057,Model Air,71.057,Ja,2,Nee,0,0
+Model Air - Gloss Varnish,058,Model Air,71.058,Ja,1,Nee,0,0
+Model Air - Matte Varnish,059,Model Air,71.059,Nee,0,Nee,0,0
+Model Air - Satin Varnish,060,Model Air,71.060,Nee,0,Nee,0,0
+Model Air - Thinners 30ml (x4),061,Model Air,71.061,Nee,0,Nee,0,0
+Model Air - Aluminium (Metallic),062,Model Air,71.062,Ja,1,Nee,0,0
+Model Air - Silver (Metallic),063,Model Air,71.063,Ja,1,Nee,0,0
+Model Air - Chrome (Metallic),064,Model Air,71.064,Ja,1,Nee,0,0
+Model Air - Steel (Metallic),065,Model Air,71.065,Ja,1,Nee,0,0
+Model Air - Gold (Metallic),066,Model Air,71.066,Nee,0,Nee,0,0
+Model Air - Bright Brass (Metallic),067,Model Air,71.067,Nee,0,Nee,0,0
+Model Air - Copper (Metallic),068,Model Air,71.068,Nee,0,Nee,0,0
+Model Air - Rust (Metallic),069,Model Air,71.069,Nee,0,Nee,0,0
+Model Air - Turn Signal Red (Metallic),070,Model Air,71.070,Nee,0,Nee,0,0
+Model Air - Artic Blue (Metallic),071,Model Air,71.071,Nee,0,Nee,0,0
+Model Air - Gun (Metallic),072,Model Air,71.072,Ja,1,Nee,0,0
+Model Air - Black (Metallic),073,Model Air,71.073,Ja,1,Nee,0,0
+Model Air - Radome Tan,074,Model Air,71.074,Nee,0,Nee,0,0
+Model Air - Sand,075,Model Air,71.075,Ja,1,Nee,0,0
+Model Air - Skin Tone,076,Model Air,71.076,Ja,1,Nee,0,0
+Model Air - Wood,077,Model Air,71.077,Nee,0,Nee,0,0
+Model Air - Gold Yellow,078,Model Air,71.078,Ja,1,Nee,0,0
+Model Air - Flat Tan,079,Model Air,71.079,Nee,0,Nee,0,0
+Model Air - Rust,080,Model Air,71.080,Nee,0,Ja,1,0
+Model Air - Tank Dark Yellow 1943,081,Model Air,71.081,Nee,0,Nee,0,0
+Model Air - Fluorescent Red,082,Model Air,71.082,Nee,0,Nee,0,0
+Model Air - Orange,083,Model Air,71.083,Ja,1,Nee,0,0
+Model Air - Fire Red,084,Model Air,71.084,Nee,0,Nee,0,0
+Model Air - Italian Red,085,Model Air,71.085,Ja,4,Nee,0,0
+Model Air - Light Red,086,Model Air,71.086,Ja,1,Nee,0,0
+Model Air - Dark Sea Blue,087,Model Air,71.087,Nee,0,Nee,0,0
+Model Air - French Blue,088,Model Air,71.088,Nee,0,Nee,0,0
+Model Air - Light Sea Blue,089,Model Air,71.089,Ja,2,Nee,0,0
+Model Air - Blue Angel Blue,090,Model Air,71.090,Ja,2,Nee,0,0
+Model Air - Insignia Blue,091,Model Air,71.091,Nee,0,Nee,0,0
+Model Air - Medium Green,092,Model Air,71.092,Ja,1,Nee,0,0
+Model Air - Field Green,093,Model Air,71.093,Nee,0,Nee,0,0
+Model Air - Green Zinc Chromate,094,Model Air,71.094,Ja,1,Nee,0,0
+Model Air - Pale Green,095,Model Air,71.095,Ja,2,Nee,0,0
+Model Air - Panzer Olive Green 1943,096,Model Air,71.096,Nee,0,Nee,0,0
+Model Air - Grey Primer,097,Model Air,71.097,Ja,1,Nee,0,0
+Model Air - Faded P.R.U. Blue,109,Model Air,71.109,Ja,1,Nee,0,0
+Model Air - USAF Light blue,111,Model Air,71.111,Ja,1,Nee,0,0
+Model Air - Dark Ghost Gray,120,Model Air,71.120,Ja,1,Nee,0,0
+Model Air - Light Gull Gray,121,Model Air,71.121,Ja,1,Nee,0,0
+Model Air - Concrete,131,Model Air,71.131,Ja,1,Nee,0,0
+Model Air - US Light Green,137,Model Air,71.137,Ja,1,Nee,0,0
+Model Air - US Field Drab,139,Model Air,71.139,Ja,1,Nee,0,0
+Model Air - NATO Black,251,Model Air,71.251,Ja,1,Nee,0,0
+Model Air - US Dark Green,289,Model Air,71.289,Ja,1,Nee,0,0
+Model Air - US Earth Brown,290,Model Air,71.290,Ja,1,Nee,0,0
+Model Air - US Earth Yellow,291,Model Air,71.291,Ja,1,Nee,0,0
+Model Air - US Forest Green,294,Model Air,71.294,Ja,1,Nee,0,0
+Model Air - Dark Gull Gray,277,Model Air,71.277,Ja,1,Nee,0,0
+Model Air - BS Medium Sea Grey,307,Model Air,71.307,Ja,1,Nee,0,0
+Model Air - Tire Black,315,Model Air,71.315,Ja,1,Nee,0,0
+Model Color - Plastic Putty,400,Model Color,70.400,Nee,0,Nee,0,0
+Model Color - Glossy Medium,470,Model Color,70.470,Nee,0,Nee,0,0
+Model Color - Glossy Varnish,510,Model Color,70.510,Ja,1,Nee,0,0
+Model Color - Matt Varnish,520,Model Color,70.520,Ja,1,Nee,0,0
+Model Color - Metal Medium,521,Model Color,70.521,Nee,0,Nee,0,0
+Model Color - Satin Varnish,522,Model Color,70.522,Ja,1,Nee,0,0
+Model Color - Liquid Mask,523,Model Color,70.523,Nee,0,Nee,0,0
+Model Color - Thinner,524,Model Color,70.524,Nee,0,Nee,0,0
+Model Color - Matte Medium,540,Model Color,70.540,Nee,0,Nee,0,0
+Model Color - Glaze Medium,596,Model Color,70.596,Nee,0,Nee,0,0
+Model Color - Drying Retarder,597,Model Color,70.597,Nee,0,Nee,0,0
+Model Color - Crackel Medium,598,Model Color,70.598,Nee,0,Nee,0,0
+Model Color - Pumice Stone,599,Model Color,70.599,Nee,0,Nee,0,0
+Model Color - Fluorescent Yellow,730,Model Color,70.730,Nee,0,Nee,0,0
+Model Color - Fluorescent Orange,733,Model Color,70.733,Nee,0,Nee,0,0
+Model Color - Fluorescent Magenta,735,Model Color,70.735,Nee,0,Nee,0,0
+Model Color - Fluorescent Blue,736,Model Color,70.736,Nee,0,Nee,0,0
+Model Color - Fluorescent Green,737,Model Color,70.737,Nee,0,Nee,0,0
+Model Color - Metallic Gunmetal Blue,800,Model Color,70.800,Nee,0,Nee,0,0
+Model Color - Metallic Brass,801,Model Color,70.801,Nee,0,Nee,0,0
+Model Color - Sunset Red,802,Model Color,70.802,Nee,0,Nee,0,0
+Model Color - Brown Rose,803,Model Color,70.803,Nee,0,Nee,0,0
+Model Color - Beige Red,804,Model Color,70.804,Nee,0,Nee,0,0
+Model Color - German Orange,805,Model Color,70.805,Nee,0,Nee,0,0
+Model Color - German Yellow,806,Model Color,70.806,Nee,0,Nee,0,0
+Model Color - Oxford Blue,807,Model Color,70.807,Nee,0,Nee,0,0
+Model Color - Blue Green,808,Model Color,70.808,Nee,0,Nee,0,0
+Model Color - Royal Blue,809,Model Color,70.809,Nee,0,Nee,0,0
+Model Color - Royal Purple,810,Model Color,70.810,Nee,0,Nee,0,0
+Model Color - Blue Violet,811,Model Color,70.811,Nee,0,Nee,0,0
+Model Color - Violet Red,812,Model Color,70.812,Nee,0,Nee,0,0
+Model Color - Burnt Cadmium Red,814,Model Color,70.814,Nee,0,Nee,0,0
+Model Color - Basic Skintone,815,Model Color,70.815,Nee,0,Nee,0,0
+Model Color - Luftwaffe Uniform WWII,816,Model Color,70.816,Nee,0,Nee,0,0
+Model Color - Scarlet,817,Model Color,70.817,Nee,0,Nee,0,0
+Model Color - Red Leather,818,Model Color,70.818,Nee,0,Nee,0,0
+Model Color - Iraqi Sand,819,Model Color,70.819,Nee,0,Nee,0,0
+Model Color - Offwhite,820,Model Color,70.820,Nee,0,Nee,0,0
+Model Color - German Cam Beige WWII,821,Model Color,70.821,Nee,0,Nee,0,0
+Model Color - German Cam Black Brown,822,Model Color,70.822,Nee,0,Nee,0,0
+Model Color - Luftwaffe Cam Green,823,Model Color,70.823,Nee,0,Nee,0,0
+Model Color - German Cam. Orange Ochre,824,Model Color,70.824,Nee,0,Nee,0,0
+Model Color - German Cam Pale Brown,825,Model Color,70.825,Nee,0,Nee,0,0
+Model Color - German Cam Medium Brown,826,Model Color,70.826,Nee,0,Nee,0,0
+Model Color - Lime Green,827,Model Color,70.827,Nee,0,Nee,0,0
+Model Color - Woodgrain,828,Model Color,70.828,Nee,0,Nee,0,0
+Model Color - Amarantha Red,829,Model Color,70.829,Nee,0,Nee,0,0
+Model Color - German Fieldgrey WWII,830,Model Color,70.830,Nee,0,Nee,0,0
+Model Color - Tan Glaze,831,Model Color,70.831,Nee,0,Nee,0,0
+Model Color - Verdigris Glaze,832,Model Color,70.832,Nee,0,Nee,0,0
+Model Color - German Cam. Bright Green,833,Model Color,70.833,Nee,0,Nee,0,0
+Model Color - Natural Wood,834,Model Color,70.834,Nee,0,Nee,0,0
+Model Color - Salmon Rose,835,Model Color,70.835,Nee,0,Nee,0,0
+Model Color - London Grey,836,Model Color,70.836,Nee,0,Nee,0,0
+Model Color - Pale Sand,837,Model Color,70.837,Nee,0,Nee,0,0
+Model Color - Emerald,838,Model Color,70.838,Nee,0,Nee,0,0
+Model Color - Ultramarine,839,Model Color,70.839,Nee,0,Nee,0,0
+Model Color - Light Turquoise,840,Model Color,70.840,Nee,0,Nee,0,0
+Model Color - Andrea Blue,841,Model Color,70.841,Nee,0,Nee,0,0
+Model Color - Gloss White,842,Model Color,70.842,Nee,0,Nee,0,0
+Model Color - Cork Brown,843,Model Color,70.843,Nee,0,Nee,0,0
+Model Color - Deep Sky Blue,844,Model Color,70.844,Nee,0,Nee,0,0
+Model Color - Sunny Skin Tone,845,Model Color,70.845,Nee,0,Nee,0,0
+Model Color - Mahogany Brown,846,Model Color,70.846,Nee,0,Nee,0,0
+Model Color - Dark Sand,847,Model Color,70.847,Nee,0,Nee,0,0
+#N/A,848,Model Color,70.848,Nee,0,Nee,0,0
+#N/A,849,Model Color,70.849,Nee,0,Nee,0,0
+Model Color - Medium Olive,850,Model Color,70.850,Nee,0,Nee,0,0
+Model Color - Bright Orange,851,Model Color,70.851,Nee,0,Nee,0,0
+Model Color - White Glaze,853,Model Color,70.853,Nee,0,Nee,0,0
+Model Color - Brown Glaze,854,Model Color,70.854,Nee,0,Nee,0,0
+Model Color - Black Glaze,855,Model Color,70.855,Nee,0,Nee,0,0
+Model Color - Ochre Brown,856,Model Color,70.856,Nee,0,Nee,0,0
+Model Color - Golden Olive,857,Model Color,70.857,Nee,0,Nee,0,0
+Model Color - Ice Yellow,858,Model Color,70.858,Nee,0,Nee,0,0
+Model Color - Black Red (Cadmium Brown),859,Model Color,70.859,Nee,0,Nee,0,0
+Model Color - Medium Fleshtone,860,Model Color,70.860,Nee,0,Nee,0,0
+Model Color - Gloss Black,861,Model Color,70.861,Nee,0,Nee,0,0
+Model Color - Black Grey,862,Model Color,70.862,Nee,0,Nee,0,0
+Model Color - Metallic Gunmetal Grey,863,Model Color,70.863,Nee,0,Nee,0,0
+Model Color - Metallic Natural Steel,864,Model Color,70.864,Nee,0,Nee,0,0
+Model Color - Metallic Oily Steel,865,Model Color,70.865,Nee,0,Nee,0,0
+Model Color - Grey Green,866,Model Color,70.866,Nee,0,Nee,0,0
+Model Color - Dark Blue Grey,867,Model Color,70.867,Nee,0,Nee,0,0
+Model Color - Dark Seagreen,868,Model Color,70.868,Nee,0,Nee,0,0
+Model Color - Basalt Grey,869,Model Color,70.869,Nee,0,Nee,0,0
+Model Color - Medium Sea Grey,870,Model Color,70.870,Nee,0,Nee,0,0
+Model Color - Leather Brown,871,Model Color,70.871,Nee,0,Nee,0,0
+Model Color - Chocolate Brown,872,Model Color,70.872,Nee,0,Nee,0,0
+Model Color - US Field Drab,873,Model Color,70.873,Nee,0,Nee,0,0
+Model Color - US Tan Earth,874,Model Color,70.874,Nee,0,Nee,0,0
+Model Color - Beige Brown,875,Model Color,70.875,Nee,0,Nee,0,0
+Model Color - Brown Sand,876,Model Color,70.876,Nee,0,Nee,0,0
+Model Color - Goldbrown,877,Model Color,70.877,Nee,0,Nee,0,0
+Model Color - Metallic Old Gold,878,Model Color,70.878,Nee,0,Nee,0,0
+Model Color - Green Brown,879,Model Color,70.879,Nee,0,Nee,0,0
+Model Color - Khaki Grey,880,Model Color,70.880,Nee,0,Nee,0,0
+Model Color - Yellow Green,881,Model Color,70.881,Nee,0,Nee,0,0
+Model Color - Middlestone,882,Model Color,70.882,Nee,0,Nee,0,0
+Model Color - Silver Grey,883,Model Color,70.883,Nee,0,Nee,0,0
+Model Color - Stone Grey,884,Model Color,70.884,Nee,0,Nee,0,0
+Model Color - Pastel Green,885,Model Color,70.885,Nee,0,Nee,0,0
+Model Color - Green Grey,886,Model Color,70.886,Nee,0,Nee,0,0
+Model Color - Brown Violet,887,Model Color,70.887,Nee,0,Nee,0,0
+Model Color - Olive Grey,888,Model Color,70.888,Nee,0,Nee,0,0
+Model Color - US Olive Drab,889,Model Color,70.889,Nee,0,Nee,0,0
+Model Color - Reflective Green,890,Model Color,70.890,Nee,0,Nee,0,0
+Model Color - Intermediate Green,891,Model Color,70.891,Nee,0,Nee,0,0
+Model Color - Yellow Olive,892,Model Color,70.892,Nee,0,Nee,0,0
+Model Color - US Dark Green,893,Model Color,70.893,Nee,0,Nee,0,0
+Model Color - Russian Green,894,Model Color,70.894,Nee,0,Nee,0,0
+Model Color - Gunship Green,895,Model Color,70.895,Nee,0,Nee,0,0
+Model Color - German Cam Extra Dark Green,896,Model Color,70.896,Nee,0,Nee,0,0
+Model Color - Bronze Green,897,Model Color,70.897,Nee,0,Nee,0,0
+Model Color - Dark Sea Blue,898,Model Color,70.898,Nee,0,Nee,0,0
+Model Color - Dark Prussian Blue,899,Model Color,70.899,Nee,0,Nee,0,0
+Model Color - French Mirage Blue,900,Model Color,70.900,Nee,0,Nee,0,0
+Model Color - Pastel Blue,901,Model Color,70.901,Nee,0,Nee,0,0
+Model Color - Azure,902,Model Color,70.902,Nee,0,Nee,0,0
+Model Color - Intermediate Blue,903,Model Color,70.903,Nee,0,Nee,0,0
+Model Color - Dark Blue Grey,904,Model Color,70.904,Nee,0,Nee,0,0
+Model Color - Blue Grey Pale,905,Model Color,70.905,Nee,0,Nee,0,0
+Model Color - Pale Blue,906,Model Color,70.906,Nee,0,Nee,0,0
+Model Color - Pale Greyblue,907,Model Color,70.907,Nee,0,Nee,0,0
+Model Color - Carmine Red,908,Model Color,70.908,Nee,0,Nee,0,0
+Model Color - Vermillion,909,Model Color,70.909,Nee,0,Nee,0,0
+Model Color - Orange Red,910,Model Color,70.910,Nee,0,Nee,0,0
+Model Color - Light Orange,911,Model Color,70.911,Nee,0,Nee,0,0
+Model Color - Tan Yellow,912,Model Color,70.912,Nee,0,Nee,0,0
+Model Color - Yellow Ochre,913,Model Color,70.913,Nee,0,Nee,0,0
+Model Color - Green Ochre,914,Model Color,70.914,Nee,0,Nee,0,0
+Model Color - Deep Yellow,915,Model Color,70.915,Nee,0,Nee,0,0
+Model Color - Sand Yellow,916,Model Color,70.916,Nee,0,Nee,0,0
+Model Color - Beige,917,Model Color,70.917,Nee,0,Nee,0,0
+Model Color - Ivory,918,Model Color,70.918,Nee,0,Nee,0,0
+Model Color - Foundation White,919,Model Color,70.919,Nee,0,Nee,0,0
+Model Color - German Uniform,920,Model Color,70.920,Nee,0,Nee,0,0
+Model Color - English Uniform,921,Model Color,70.921,Nee,0,Nee,0,0
+Model Color - US Uniform,922,Model Color,70.922,Nee,0,Nee,0,0
+Model Color - Japanese Uniform WWII,923,Model Color,70.923,Nee,0,Nee,0,0
+Model Color - Russian Uniform WWII,924,Model Color,70.924,Nee,0,Nee,0,0
+Model Color - Blue,925,Model Color,70.925,Nee,0,Nee,0,0
+Model Color - Red,926,Model Color,70.926,Nee,0,Nee,0,0
+Model Color - Dark Flesh,927,Model Color,70.927,Nee,0,Nee,0,0
+Model Color - Light Flesh,928,Model Color,70.928,Nee,0,Nee,0,0
+Model Color - Light Brown,929,Model Color,70.929,Nee,0,Nee,0,0
+Model Color - Dark Blue,930,Model Color,70.930,Nee,0,Nee,0,0
+Model Color - Transparent Red,934,Model Color,70.934,Nee,0,Nee,0,0
+Model Color - Transparent Orange,935,Model Color,70.935,Nee,0,Nee,0,0
+Model Color - Transparent Green,936,Model Color,70.936,Nee,0,Nee,0,0
+Model Color - Transparent Yellow,937,Model Color,70.937,Nee,0,Nee,0,0
+Model Color - Transparent Blue,938,Model Color,70.938,Nee,0,Nee,0,0
+Model Color - Smoke,939,Model Color,70.939,Nee,0,Nee,0,0
+Model Color - Saddle Brown,940,Model Color,70.940,Nee,0,Nee,0,0
+Model Color - Burnt Umber,941,Model Color,70.941,Nee,0,Nee,0,0
+Model Color - Light Green,942,Model Color,70.942,Nee,0,Nee,0,0
+Model Color - Grey Blue,943,Model Color,70.943,Nee,0,Nee,0,0
+Model Color - Old Rose,944,Model Color,70.944,Nee,0,Nee,0,0
+Model Color - Magenta,945,Model Color,70.945,Nee,0,Nee,0,0
+Model Color - Dark Red,946,Model Color,70.946,Nee,0,Nee,0,0
+Model Color - Red,947,Model Color,70.947,Nee,0,Nee,0,0
+Model Color - Golden Yellow,948,Model Color,70.948,Nee,0,Nee,0,0
+Model Color - Light Yellow,949,Model Color,70.949,Nee,0,Nee,0,0
+Model Color - Matt Black,950,Model Color,70.950,Nee,0,Nee,0,0
+Model Color - White,951,Model Color,70.951,Nee,0,Nee,0,0
+Model Color - Lemon Yellow,952,Model Color,70.952,Nee,0,Nee,0,0
+Model Color - Flat Yellow,953,Model Color,70.953,Nee,0,Nee,0,0
+Model Color - Yellow Green,954,Model Color,70.954,Nee,0,Nee,0,0
+Model Color - Flat Flesh,955,Model Color,70.955,Nee,0,Nee,0,0
+Model Color - Clear Orange,956,Model Color,70.956,Nee,0,Nee,0,0
+Model Color - Flat Red,957,Model Color,70.957,Nee,0,Nee,0,0
+Model Color - Pink,958,Model Color,70.958,Nee,0,Nee,0,0
+Model Color - Purple,959,Model Color,70.959,Nee,0,Nee,0,0
+Model Color - Violet,960,Model Color,70.960,Nee,0,Nee,0,0
+Model Color - Sky Blue,961,Model Color,70.961,Nee,0,Nee,0,0
+Model Color - Flat Blue,962,Model Color,70.962,Nee,0,Nee,0,0
+Model Color - Medium Blue,963,Model Color,70.963,Nee,0,Nee,0,0
+Model Color - Field Blue,964,Model Color,70.964,Nee,0,Nee,0,0
+Model Color - Prussian Blue,965,Model Color,70.965,Nee,0,Nee,0,0
+Model Color - Turquoise,966,Model Color,70.966,Nee,0,Nee,0,0
+Model Color - Olive Green,967,Model Color,70.967,Nee,0,Nee,0,0
+Model Color - Flat Green,968,Model Color,70.968,Nee,0,Nee,0,0
+Model Color - Park Green Flat,969,Model Color,70.969,Nee,0,Nee,0,0
+Model Color - Deep Green,970,Model Color,70.970,Nee,0,Nee,0,0
+Model Color - Grey Grey,971,Model Color,70.971,Nee,0,Nee,0,0
+Model Color - Light Green Blue,972,Model Color,70.972,Nee,0,Nee,0,0
+Model Color - Light Sea Grey,973,Model Color,70.973,Nee,0,Nee,0,0
+Model Color - Green Sky,974,Model Color,70.974,Nee,0,Nee,0,0
+Model Color - Military Green,975,Model Color,70.975,Nee,0,Nee,0,0
+Model Color - Buff,976,Model Color,70.976,Nee,0,Nee,0,0
+Model Color - Desert Yellow,977,Model Color,70.977,Nee,0,Nee,0,0
+Model Color - Dark Yellow,978,Model Color,70.978,Nee,0,Nee,0,0
+Model Color - German Cam Dark Green,979,Model Color,70.979,Nee,0,Nee,0,0
+Model Color - Black Green,980,Model Color,70.980,Nee,0,Nee,0,0
+Model Color - Orange Brown,981,Model Color,70.981,Nee,0,Nee,0,0
+Model Color - Calvalry Brown,982,Model Color,70.982,Nee,0,Nee,0,0
+Model Color - Flat Earth,983,Model Color,70.983,Nee,0,Nee,0,0
+Model Color - Flat Brown,984,Model Color,70.984,Nee,0,Nee,0,0
+Model Color - Hull Red,985,Model Color,70.985,Nee,0,Nee,0,0
+Model Color - Deck Tan,986,Model Color,70.986,Nee,0,Nee,0,0
+Model Color - Medium Grey,987,Model Color,70.987,Nee,0,Nee,0,0
+Model Color - Khaki,988,Model Color,70.988,Nee,0,Nee,0,0
+Model Color - Sky Grey,989,Model Color,70.989,Nee,0,Nee,0,0
+Model Color - Light Grey,990,Model Color,70.990,Nee,0,Nee,0,0
+Model Color - Dark Sea Grey,991,Model Color,70.991,Nee,0,Nee,0,0
+Model Color - Neutral Grey,992,Model Color,70.992,Nee,0,Nee,0,0
+Model Color - White Grey,993,Model Color,70.993,Nee,0,Nee,0,0
+Model Color - Dark Grey,994,Model Color,70.994,Nee,0,Nee,0,0
+Model Color - German Grey,995,Model Color,70.995,Nee,0,Nee,0,0
+Model Color - Metallic Gold,996,Model Color,70.996,Nee,0,Nee,0,0
+Model Color - Metallic Silver,997,Model Color,70.997,Nee,0,Nee,0,0
+Model Color - Metallic Bronze,998,Model Color,70.998,Nee,0,Nee,0,0
+Model Color - Metallic Copper,999,Model Color,70.999,Nee,0,Nee,0,0
+Metal Color - Alumnium,701,Metal Color,77.701,Ja,1,Nee,0,0
+Metal Color - Dark Alumnium,703,Metal Color,77.703,Ja,1,Nee,0,0
+Metal Color - Steel,712,Metal Color,77.712,Ja,1,Nee,0,0
+Metal Color - Exhaust Manifold,723,Metal Color,77.723,Ja,1,Nee,0,0
+Primers -  White 200ml,600,Primer 200ml,74.600,Ja,1,Nee,0,0
+Primers -  Grey 200ml,601,Primer 200ml,74.601,Ja,1,Nee,0,0
+Primers -  Black 200ml,602,Primer 200ml,74.602,Nee,0,Nee,0,0
+Primers -  White 60ml,600,Primer 60ml,73.600,Nee,0,Nee,0,0
+Primers - Grey 60ml,601,Primer 60ml,73.601,Ja,1,Nee,0,0
+Primers - Black 60ml,602,Primer 60ml,73.602,Ja,1,Nee,0,0
+Primers - White 17ml,600,Primer 17ml,70.600,Nee,0,Nee,0,0
+Primers - Grey 17ml,601,Primer 17ml,70.601,Nee,0,Nee,0,0
+Primers - Black 17ml,602,Primer 17ml,70.602,Nee,0,Nee,0,0
+Glos+B718:H727 Clear,1,Enamel Revell,REV-1,Nee,0,Nee,0,0
+Flat Clear,2,Enamel Revell,REV-2,Nee,0,Nee,0,0
+Gloss White,4,Enamel Revell,REV-4,Ja,2,Nee,0,0
+Flat White,5,Enamel Revell,REV-5,Ja,2,Nee,0,0
+Flat Tar Black,6,Enamel Revell,REV-6,Ja,1,Nee,0,0
+Gloss Black,7,Enamel Revell,REV-7,Ja,1,Nee,0,0
+Flat Black,8,Enamel Revell,REV-8,Ja,2,Nee,0,0
+Flat Antharacite,9,Enamel Revell,REV-9,Ja,4,Nee,0,0
+Gloss Yellow,12,Enamel Revell,REV-12,Ja,2,Nee,0,0
+Flat Yellow,15,Enamel Revell,REV-15,Ja,1,Nee,0,0
+Flat Sandy Yellow,16,Enamel Revell,REV-16,Ja,1,Nee,0,0
+Flat Africa Brown,17,Enamel Revell,REV-17,Ja,1,Nee,0,0
+Flat Luminous Orange,25,Enamel Revell,REV-25,Nee,0,Nee,0,0
+Gloss Orange,30,Enamel Revell,REV-30,Ja,1,Nee,0,0
+Gloss Fire Red,31,Enamel Revell,REV-31,Ja,1,Nee,0,0
+Gloss Ferrari Red,34,Enamel Revell,REV-34,Ja,2,Nee,0,0
+Flat flesh,35,Enamel Revell,REV-35,Nee,0,Nee,0,0
+Flat Carmine Red,36,Enamel Revell,REV-36,Ja,1,Nee,0,0
+Flat Reddisch Brown,37,Enamel Revell,REV-37,Ja,1,Nee,0,0
+Flat Dark Green,39,Enamel Revell,REV-39,Nee,0,Nee,0,0
+Flat Black- Green,40,Enamel Revell,REV-40,Nee,0,Nee,0,0
+Flat Yellowish Olive,42,Enamel Revell,REV-42,Nee,0,Nee,0,0
+Flat medium Grey USAF,43,Enamel Revell,REV-43,Ja,1,Nee,0,0
+Flat light olive,45,Enamel Revell,REV-45,Nee,0,Nee,0,0
+Flat NATO Olive,46,Enamel Revell,REV-46,Nee,0,Nee,0,0
+Flat Mouse Grey,47,Enamel Revell,REV-47,Nee,0,Nee,0,0
+Flat Sea Green,48,Enamel Revell,REV-48,Nee,0,Nee,0,0
+Flat Light blue,49,Enamel Revell,REV-49,Nee,0,Nee,0,0
+Gloss Sky blue,50,Enamel Revell,REV-50,Nee,0,Nee,0,0
+Gloss Ultramarine Blue,51,Enamel Revell,REV-51,Ja,1,Nee,0,0
+Gloss Blue,52,Enamel Revell,REV-52,Ja,1,Nee,0,0
+Gloss Night Blue,54,Enamel Revell,REV-54,Nee,0,Nee,0,0
+Flat Light Green,55,Enamel Revell,REV-55,Nee,0,Nee,0,0
+Flat Blue,56,Enamel Revell,REV-56,Nee,0,Nee,0,0
+Flat Grey,57,Enamel Revell,REV-57,Ja,2,Nee,0,0
+Flat sky Blue,59,Enamel Revell,REV-59,Nee,0,Nee,0,0
+Gloss Emerald Green,61,Enamel Revell,REV-61,Nee,0,Nee,0,0
+Gloss Sea Green,62,Enamel Revell,REV-62,Nee,0,Nee,0,0
+Flat Bronze Green,65,Enamel Revell,REV-65,Ja,3,Nee,0,0
+Flat Olive Grey,66,Enamel Revell,REV-66,Nee,0,Nee,0,0
+Flat Greenish Grey,67,Enamel Revell,REV-67,Nee,0,Nee,0,0
+Flat Dark Green RAF,68,Enamel Revell,REV-68,Ja,1,Nee,0,0
+Flat Granite Grey,69,Enamel Revell,REV-69,Nee,0,Nee,0,0
+Flat Gunship Grey,74,Enamel Revell,REV-74,Nee,0,Nee,0,0
+Flat Stone Grey,75,Enamel Revell,REV-75,Nee,0,Nee,0,0
+Flat Light Grey USAF,76,Enamel Revell,REV-76,Ja,1,Nee,0,0
+Flat Dust Grey,77,Enamel Revell,REV-77,Ja,1,Nee,0,0
+Flat Tank Grey,78,Enamel Revell,REV-78,Nee,0,Nee,0,0
+Flat Greyish Blue,79,Enamel Revell,REV-79,Nee,0,Nee,0,0
+Gloss Mud Brown,80,Enamel Revell,REV-80,Nee,0,Nee,0,0
+Flat Dark Earth,82,Enamel Revell,REV-82,Ja,1,Nee,0,0
+Flat Rust,83,Enamel Revell,REV-83,Ja,1,Nee,0,0
+Flat Lether Brown,84,Enamel Revell,REV-84,Ja,1,Nee,0,0
+Flat Brown,85,Enamel Revell,REV-85,Nee,0,Nee,0,0
+Flat Khaki Brown,86,Enamel Revell,REV-86,Nee,0,Nee,0,0
+Flat Earth Brown,87,Enamel Revell,REV-87,Ja,1,Nee,0,0
+Flat Ochre,88,Enamel Revell,REV-88,Ja,2,Nee,0,0
+Flat Beige,89,Enamel Revell,REV-89,Ja,1,Nee,0,0
+Metallic Silver,90,Enamel Revell,REV-90,Ja,1,Nee,0,0
+Metallic Iron Grey,91,Enamel Revell,REV-91,Ja,2,Nee,0,0
+Metallic Messing,92,Enamel Revell,REV-92,Nee,0,Nee,0,0
+Metallic Copper,93,Enamel Revell,REV-93,Ja,2,Nee,0,0
+Metallic Gold,94,Enamel Revell,REV-94,Ja,1,Nee,0,0
+Metallic Bronze,95,Enamel Revell,REV-95,Nee,0,Nee,0,0
+Metallic Aluminium,99,Enamel Revell,REV-99,Ja,2,Nee,0,0
+Semi Gloss White,301,Enamel Revell,REV-301,Nee,0,Nee,0,0
+Semi Gloss Black,302,Enamel Revell,REV-302,Ja,1,Nee,0,0
+Semi Gloss Lufthansa Yellow,310,Enamel Revell,REV-310,Nee,0,Nee,0,0
+Semi Gloss Luminous Yellow,312,Enamel Revell,REV-312,Nee,0,Nee,0,0
+Semi Gloss Beige,314,Enamel Revell,REV-314,Ja,2,Nee,0,0
+Semi Gloss Fiery Red,330,Enamel Revell,REV-330,Ja,1,Nee,0,0
+Semi Gloss Purple Red,331,Enamel Revell,REV-331,Ja,1,Nee,0,0
+Semi Gloss Luminous Red,332,Enamel Revell,REV-332,Nee,0,Nee,0,0
+Semi Gloss Lufthansa Blue,350,Enamel Revell,REV-350,Nee,0,Nee,0,0
+Semi Gloss Fern Green,360,Enamel Revell,REV-360,Ja,2,Nee,0,0
+Semi Gloss Olive Green,361,Enamel Revell,REV-361,Nee,0,Nee,0,0
+Semi Gloss Greyish Green,362,Enamel Revell,REV-362,Nee,0,Nee,0,0
+Semi Gloss Dark Green,363,Enamel Revell,REV-363,Ja,1,Nee,0,0
+Semi Gloss Leaf Green,364,Enamel Revell,REV-364,Nee,0,Nee,0,0
+Semi Gloss Patina Green,365,Enamel Revell,REV-365,Nee,0,Nee,0,0
+Semi Gloss Light Grey,371,Enamel Revell,REV-371,Ja,1,Nee,0,0
+Semi Gloss Grey,374,Enamel Revell,REV-374,Ja,1,Nee,0,0
+Semi Gloss Dark Grey,378,Enamel Revell,REV-378,Nee,0,Nee,0,0
+Semi Gloss Brown,381,Enamel Revell,REV-381,Nee,0,Nee,0,0
+Semi Gloss Wood Brown,382,Enamel Revell,REV-382,Nee,0,Nee,0,0
+Clear Orange,730,Enamel Revell,REV-730,Ja,1,Nee,0,0
+Clear Red,731,Enamel Revell,REV-731,Ja,1,Nee,0,0
+Clear Blue,752,Enamel Revell,REV-752,Nee,0,Nee,0,0
