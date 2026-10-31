@@ -161,19 +161,29 @@ def main():
         if query:
             results = search_paint(paints, query)
             st.write(f"gevonden: {len(results)} verven")
-            st.dataframe(results)
-    
+        
+            for p in results:
+                if p['aantal'] > 0:
+                    st.info(f"🔵 IN VOORRAAD: {p['kleurnaam']} | {p['volledig_nummer']} | Aantal: {p['aantal']}")
+                else:
+                    st.warning(f"🟠 NIET IN VOORRAAD: {p['kleurnaam']} | {p['volledig_nummer']}")
+
     # TODO 5: 
     if keuze == "Voorraad":
         reeksen = ["Alle"] + list(set(p['reeks'] for p in paints))
         reeks_filter = st.selectbox("Filter op reeks:", reeksen)
     
         if reeks_filter == "Alle":
-            in_voorraad = [p for p in paints if p['aantal'] > 0]
+            toon_verven = paints
         else:
-            in_voorraad = [p for p in paints if p['aantal'] > 0 and p['reeks'] == reeks_filter]
+            toon_verven = [p for p in paints if p['reeks'] == reeks_filter]
     
-        st.dataframe(in_voorraad)
+    # Voeg status toe
+        for p in toon_verven:
+            p['status'] = "🔵 IN VOORRAAD" if p['aantal'] > 0 else "🟠 NIET IN VOORRAAD"
+    
+        st.dataframe(toon_verven)
+
 
     
     # TODO 6:
