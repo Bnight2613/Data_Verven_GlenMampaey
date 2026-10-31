@@ -8,6 +8,7 @@ Hieronder staan de GUI componenten die je moet invullen.
 """
 
 import streamlit as st
+import pandas as pd
 import csv
 import os
 import io
@@ -110,22 +111,34 @@ def main():
         col1, col2 = st.columns(2)
         col1.metric("In voorraad", in_voorraad)
         col2.metric("Niet in voorraad", niet_in_voorraad)
+    
+        st.write("### Per reeks:")
+        reeksen = ["Model Air", "Model Color", "Metal Color", "Primer 17ml", "Primer 60ml", "Primer 200ml", "Enamel Revell"]
+        for reeks in reeksen:
+            aantal = len([p for p in paints if p['reeks'] == reeks and p['aantal'] > 0])
+            st.write(f"- {reeks}: {aantal} in voorraad")
+
 
     # TODO 4: 
     if keuze == "Zoeken":
         query = st.text_input("Zoek verf: ")
         if query:
             results = search_paint(paints, query)
-            st.write(f"gevonde: {len(results)} verven")
+            st.write(f"gevonden: {len(results)} verven")
             st.dataframe(results)
     
     # TODO 5: 
     if keuze == "Voorraad":
-        in_voorraad = [p for p in paints if p['aantal'] > 0]
-        namen = [f"{p['kleurnaam']} ({p['volledig_nummer']})" for p in in_voorraad]
+        reeksen = ["Alle"] + list(set(p['reeks'] for p in paints))
+        reeks_filter = st.selectbox("Filter op reeks:", reeksen)
     
-        geselecteerd = st.selectbox("Kies een verf:", namen)
+        if reeks_filter == "Alle":
+            in_voorraad = [p for p in paints if p['aantal'] > 0]
+        else:
+            in_voorraad = [p for p in paints if p['aantal'] > 0 and p['reeks'] == reeks_filter]
+    
         st.dataframe(in_voorraad)
+
     
     # TODO 6:
     if keuze == "Bestellijst":
@@ -166,8 +179,14 @@ def main():
                     })
         
         # dataframe PAS NA de loop!
-                    st.write(f"Te kopen: {len(must_buy)} verven")
-                    st.dataframe(must_buy)
+            st.write(f"Te kopen: {len(must_buy)} verven")
+            st.dataframe(must_buy)
+
+            st.download_button("Download bestellijst", 
+                pd.DataFrame(must_buy).to_csv(index=False),
+                "bestellijst.csv")
+
+                    
 
     pass
 
