@@ -188,49 +188,146 @@ def main():
     
     # TODO 6:
     if keuze == "Bestellijst":
-        bestand = st.file_uploader("Upload een project CSV:", type=["csv"])  # EERST dit!
-    
-        if bestand is not None:  # DAN pas checken
-            content = bestand.read().decode('utf-8')
-            reader = csv.DictReader(io.StringIO(content))
+        methode = st.radio("Hoe wil je een bestellijst maken?", ["CSV uploaden", "Zelf verven kiezen"])
         
-            must_buy = []
-            for item in reader:
-                volledig = item['volledig_nummer']
-                nodig = int(item['aantal_nodig'])
-            
-                gevonden = None
-                for p in paints:
-                    if p['volledig_nummer'] == volledig:
-                        gevonden = p
-                        break
-            
-                if gevonden is None:
-                    must_buy.append({
-                        'kleurnaam': item['kleurnaam'],
-                        'volledig_nummer': volledig,
-                        'status': 'NIET IN VOORRAAD',
-                        'nodig': nodig,
-                        'heeft': 0,
-                        'tekort': nodig
-                    })
-                elif gevonden['aantal'] < nodig:
-                    must_buy.append({
-                        'kleurnaam': item['kleurnaam'],
-                        'volledig_nummer': volledig,
-                        'status': 'TE WEINIG',
-                        'nodig': nodig,
-                        'heeft': gevonden['aantal'],
-                        'tekort': nodig - gevonden['aantal']
-                    })
+        # --- Optie 1: CSV uploaden (bestaand) ---
+        if methode == "CSV uploaden":
+            bestand = st.file_uploader("Upload een project CSV:", type=["csv"])
         
-        # dataframe PAS NA de loop!
-            st.write(f"Te kopen: {len(must_buy)} verven")
-            st.dataframe(must_buy)
-
-            st.download_button("Download bestellijst", 
-                pd.DataFrame(must_buy).to_csv(index=False),
-                "bestellijst.csv")
+            if bestand is not None:
+                content = bestand.read().decode('utf-8')
+                reader = csv.DictReader(io.StringIO(content))
+            
+                must_buy = []
+                for item in reader:
+                    volledig = item['volledig_nummer']
+                    nodig = int(item['aantal_nodig'])
+                
+                    gevonden = None
+                    for p in paints:
+                        if p['volledig_nummer'] == volledig:
+                            gevonden = p
+                            break
+                
+                    if gevonden is None:
+                        must_buy.append({
+                            'kleurnaam': item['kleurnaam'],
+                            'volledig_nummer': volledig,
+                            'status': 'NIET IN VOORRAAD',
+                            'nodig': nodig,
+                            'heeft': 0,
+                            'tekort': nodig
+                        })
+                    elif gevonden['aantal'] < nodig:
+                        must_buy.append({
+                            'kleurnaam': item['kleurnaam'],
+                            'volledig_nummer': volledig,
+                            'status': 'TE WEINIG',
+                            'nodig': nodig,
+                            'heeft': gevonden['aantal'],
+                            'tekort': nodig - gevonden['aantal']
+                    })
+            
+                st.write(f"Te kopen: {len(must_buy)} verven")
+                st.dataframe(must_buy)
+                st.download_button("Download bestellijst", 
+                    pd.DataFrame(must_buy).to_csv(index=False),
+                    "bestellijst.csv")
+        
+        # --- Optie 2: Zelf verven kiezen (nieuw) ---
+        if methode == "Zelf verven kiezen":
+            st.write("### Kies de verven die je nodig hebt voor je project")
+            st.write("")
+            
+            # Filter op reeks om makkelijker te zoeken
+            reeksen = ["Alle"] + list(set(p['reeks'] for p in paints))
+            reeks_filter = st.selectbox("Filter op reeks:", reeksen)
+            
+            if reeks_filter == "Alle":
+                keuzes = [f"{p['kleurnaam']} ({p['volledig_nummer']})" for p in paints]
+            else:
+                keuzes = [f"{p['kleurnaam']} ({p['volledig_nummer']})" for p in paints if p['reeks'] == reeks_filter]
+            
+            # Laat de gebruiker meerdere verven tegelijk kiezen
+            geselecteerd = st.multiselect("Kies je verven:", keuzes)
+            
+            if geselecteerd:
+                # Maak een lijst met de gekozen verven + hoeveelheid
+                st.write("### Hoeveel heb je er nodig?")
+                
+                project_verven = []
+                for keuze_verf in geselecteerd:
+                    # Haal de volledig_nummer uit de string
+                    volledig = keuze_verf.split("(")[-1].rstrip(")")
+                    # Vind de verf in de voorraad
+                    for p in paints:
+                        if p['volledig_nummer'] == volledig:
+                            nodig = st.number_input(
+                                f"{p['kleurnaam']} ({p['volledig_nummer']})",
+                                min_value=1,
+                                value=1,
+                                key=volledig
+                            )
+                            project_verven.append({
+                                'kleurnaam': p['kleurnaam'],
+                                'volledig_nummer': volledig,
+                                'reeks': p['reeks'],
+                                'aantal_nodig': nodig,
+                                'in_voorraad': p['aantal']
+                            })
+                            break
+                
+                # Genereer bestellijst
+                if st.button("Bereken bestellijst"):
+                    must_buy = []
+                    heb_al = []
+                    
+                    for item in project_verven:
+                        nodig = item['aantal_nodig']
+                        heeft = item['in_voorraad']
+                        
+                        if heeft == 0:
+                            must_buy.append({
+                                'kleurnaam': item['kleurnaam'],
+                                'volledig_nummer': item['volledig_nummer'],
+                                'status': '🟠 NIET IN VOORRAAD',
+                                'nodig': nodig,
+                                'heeft': 0,
+                                'tekort': nodig
+                            })
+                        elif heeft < nodig:
+                            must_buy.append({
+                                'kleurnaam': item['kleurnaam'],
+                                'volledig_nummer': item['volledig_nummer'],
+                                'status': '🟠 TE WEINIG',
+                                'nodig': nodig,
+                                'heeft': heeft,
+                                'tekort': nodig - heeft
+                            })
+                        else:
+                            heb_al.append({
+                                'kleurnaam': item['kleurnaam'],
+                                'volledig_nummer': item['volledig_nummer'],
+                                'status': '🔵 IN VOORRAAD',
+                                'nodig': nodig,
+                                'heeft': heeft,
+                                'tekort': 0
+                            })
+                    
+                    # Toon wat je al hebt
+                    st.write(f"### ✅ Al in voorraad: {len(heb_al)} verven")
+                    if heb_al:
+                        st.dataframe(heb_al)
+                    
+                    # Toon wat je moet kopen
+                    st.write(f"### 🟠 Te kopen: {len(must_buy)} verven")
+                    if must_buy:
+                        st.dataframe(must_buy)
+                        st.download_button("Download bestellijst", 
+                            pd.DataFrame(must_buy).to_csv(index=False),
+                            "bestellijst.csv")
+                    else:
+                        st.info("🔵 Je hebt alles in voorraad!")
 
                     
 
