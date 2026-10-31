@@ -20,44 +20,27 @@ INVENTORY_CSV = os.path.join(DATA_DIR, "inventory.csv")
 # FUNCTIE 1: Laad de voorraad vanuit CSV
 # ============================================================
 def load_inventory(filepath=INVENTORY_CSV):
-    """
-    Leest inventory.csv en geeft een lijst van dictionaries terug.
-
-    Elke paint heeft:
-      - kleurnaam     (bijv. "Model Air - Yellow")
-      - artikelnummer (bijv. "002")
-      - reeks         (bijv. "Model Air")
-      - volledig_nummer (bijv. "71.002")
-      - in_voorraad   (bijv. "Ja" of "Nee")
-      - aantal        (bijv. 3)
-      - bestellen     (bijv. "Ja" of "Nee")
-      - aantal_bestellen
-      - gewenst_aantal
-
-    TODO: Lees het CSV bestand en geef de data terug.
-    Hint: Gebruik de csv module of pandas.
-    """
     paints = []
-    # Jouw code hier...
+    with open(filepath, 'r', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            row['aantal'] = int(row['aantal'])
+            paints.append(row)
     return paints
+
 
 
 # ============================================================
 # FUNCTIE 2: Zoek verf
 # ============================================================
 def search_paint(paints, query):
-    """
-    Zoek verf op kleurnaam, artikelnummer, of volledig nummer.
-
-    Bijv:
-      search_paint(paints, "Yellow")       -> zoekt op naam
-      search_paint(paints, "71.002")       -> zoekt op volledig nummer
-      search_paint(paints, "002")          -> zoekt op artikelnummer
-
-    TODO: Filter de paints lijst op de zoekopdracht.
-    """
-    results = []
-    # Jouw code hier...
+    results=[]
+    query = query.lower()
+    for p in paints:
+        if (query in p['kleurnaam'].lower() or 
+            query in p['artikelnummer'].lower() or 
+            query in p['volledig_nummer'].lower()):
+            results.append(p)
     return results
 
 
@@ -65,48 +48,50 @@ def search_paint(paints, query):
 # FUNCTIE 3: Toon wat papa al heeft
 # ============================================================
 def show_in_stock(paints):
-    """
-    Toon alle verven waar aantal > 0 (in voorraad).
+    in_stock = [p for p in paints if p['aantal'] > 0]
+    print(f"In voorraad: {len(in_stock)} verven\n")
+    for p in in_stock:
+        print(f"  {p['kleurnaam']} | {p['volledig_nummer']} | Aantal: {p['aantal']}")
 
-    TODO: Filter en print de verven die in voorraad zijn.
-    """
-    # Jouw code hier...
-    pass
 
 
 # ============================================================
 # FUNCTIE 4: Toon wat papa niet heeft
 # ============================================================
 def show_out_of_stock(paints):
-    """
-    Toon alle verven waar aantal = 0 (niet in voorraad).
+    out_of_stock = [p for p in paints if p['aantal'] == 0]
+    print(f"Niet in voorraad: {len(out_of_stock)} verven\n")
+    for p in out_of_stock:
+        print(f"  {p['kleurnaam']} | {p['volledig_nummer']}")
 
-    TODO: Filter en print de verven die NIET in voorraad zijn.
-    """
-    # Jouw code hier...
-    pass
 
 
 # ============================================================
 # FUNCTIE 5: Wat moet papa kopen voor een project?
 # ============================================================
 def shopping_list(paints, project_file):
-    """
-    Lees een project CSV (welke verven nodig zijn) en vergelijk
-    met de voorraad. Geef terug wat papa nog moet kopen.
-
-    Een project CSV ziet er zo uit:
-      kleurnaam,reeks,volledig_nummer,aantal_nodig
-
-    TODO:
-      1. Lees het project bestand
-      2. Voor elke verf in het project, check of papa het al heeft
-      3. Als papa het niet heeft (of niet genoeg), voeg toe aan de bestellijst
-      4. Print de bestellijst
-    """
     must_buy = []
-    # Jouw code hier...
+    with open(project_file, 'r', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        for item in reader:
+            volledig = item['volledig_nummer']
+            nodig = int(item['aantal_nodig'])
+            
+            # Zoek deze verf in de voorraad
+            gevonden = None
+            for p in paints:
+                if p['volledig_nummer'] == volledig:
+                    gevonden = p
+                    break
+            
+            if gevonden is None:
+                must_buy.append(f"{item['kleurnaam']} ({volledig}) - NIET IN VOORRAAD (nodig: {nodig})")
+            elif gevonden['aantal'] < nodig:
+                tekort = nodig - gevonden['aantal']
+                must_buy.append(f"{item['kleurnaam']} ({volledig}) - Koop er {tekort} extra (heeft: {gevonden['aantal']}, nodig: {nodig})")
+    
     return must_buy
+
 
 
 # ============================================================
