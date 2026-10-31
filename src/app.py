@@ -9,6 +9,7 @@ Hieronder staan de GUI componenten die je moet invullen.
 
 import streamlit as st
 import pandas as pd
+import openpyxl
 import csv
 import os
 import io
@@ -29,6 +30,38 @@ def load_inventory(filepath=INVENTORY_CSV):
         for row in reader:
             row['aantal'] = int(row['aantal'])
             paints.append(row)
+    return paints
+
+
+def load_excel_inventory(uploaded_file):
+    """Leest een Excel bestand en geeft de voorraad terug als lijst van dictionaries."""
+    # Sla het geüploade bestand tijdelijk op zodat openpyxl het kan lezen
+    content = uploaded_file.read()
+    wb = openpyxl.load_workbook(io.BytesIO(content), data_only=True)
+    ws = wb['verfvoorraad']
+    
+    paints = []
+    for row in ws.iter_rows(min_row=9, max_row=ws.max_row, values_only=True):
+        # Kolommen: B(1)=Kleurnaam, C(2)=Artikelnummer, D(3)=Reeks, 
+        # E(4)=Volledig nummer, F(5)=In voorraad, G(6)=Aantal
+        if row[1] and row[3]:
+            try:
+                aantal = int(row[6]) if row[6] is not None else 0
+            except (ValueError, TypeError):
+                aantal = 0
+            
+            paints.append({
+                'kleurnaam': str(row[1]).strip(),
+                'artikelnummer': str(row[2]).strip() if row[2] else '',
+                'reeks': str(row[3]).strip(),
+                'volledig_nummer': str(row[4]).strip() if row[4] else '',
+                'in_voorraad': str(row[5]).strip() if row[5] else 'Nee',
+                'aantal': aantal,
+                'bestellen': str(row[7]).strip() if row[7] else 'Nee',
+                'aantal_bestellen': '0',
+                'gewenst_aantal': '0'
+            })
+    
     return paints
 
 
@@ -97,13 +130,16 @@ def main():
     # TODO 1: Zet een titel bovenaan
     st.title("Verfjes data")
     
-    # Laad de voorraad
-    paints = load_inventory()
+    # Laad de voorraad (van CSV of van geüploade Excel)
+    if 'uploaded_paints' in st.session_state:
+        paints = st.session_state['uploaded_paints']
+    else:
+        paints = load_inventory()
     
     # TODO 3: Maak een zijbalk (sidebar) met een menu
     # Hint:
     st.sidebar.title("Menu")
-    keuze = st.sidebar.radio("Kies:", ["Hoofd menu", "Zoeken", "Voorraad", "Bestellijst"])
+    keuze = st.sidebar.radio("Kies:", ["Hoofd menu", "Zoeken", "Voorraad", "Bestellijst", "Excel uploaden"])
     # TODO 2: Toon stats bovenaan (hoeveel in voorraad, hoeveel niet)
     in_voorraad = len([p for p in paints if p['aantal'] > 0])
     niet_in_voorraad = len([p for p in paints if p['aantal'] == 0])
@@ -188,7 +224,32 @@ def main():
 
                     
 
-    pass
+    # TODO 7: Excel uploaden om voorraad te updaten
+    if keuze == "Excel uploaden":
+        st.write("### Upload je Excel voorraad bestand")
+        st.write("Upload het bestand `stock_verven_Datasheet.xlsx` om de voorraad in de app te updaten.")
+        st.write("Dit werkt voor de huidige sessie. Sluit je de app, dan wordt de originele CSV weer gebruikt.")
+        st.write("")
+        
+        excel_bestand = st.file_uploader("Kies je Excel bestand:", type=["xlsx"])
+        
+        if excel_bestand is not None:
+            try:
+                nieuwe_voorraad = load_excel_inventory(excel_bestand)
+                st.session_state['uploaded_paints'] = nieuwe_voorraad
+                st.success(f"✅ Voorraad geladen: {len(nieuwe_voorraad)} verven!")
+                
+                in_voorraad = len([p for p in nieuwe_voorraad if p['aantal'] > 0])
+                niet_in_voorraad = len([p for p in nieuwe_voorraad if p['aantal'] == 0])
+                
+                col1, col2 = st.columns(2)
+                col1.metric("In voorraad", in_voorraad)
+                col2.metric("Niet in voorraad", niet_in_voorraad)
+                
+                st.write("Ga nu naar Zoeken, Voorraad of Bestellijst om de nieuwe data te gebruiken!")
+            except Exception as e:
+                st.error(f"Fout bij het lezen van het bestand: {e}")
+
 
 if __name__ == "__main__":
     main()
