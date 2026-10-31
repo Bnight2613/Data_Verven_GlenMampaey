@@ -107,9 +107,10 @@ def main():
     in_voorraad = len([p for p in paints if p['aantal'] > 0])
     niet_in_voorraad = len([p for p in paints if p['aantal'] == 0])
     if keuze == "Hoofd menu":
-        st.metric("In voorraad", in_voorraad) 
-        st.metric("Niet in voorraad", niet_in_voorraad)
-        
+        col1, col2 = st.columns(2)
+        col1.metric("In voorraad", in_voorraad)
+        col2.metric("Niet in voorraad", niet_in_voorraad)
+
     # TODO 4: 
     if keuze == "Zoeken":
         query = st.text_input("Zoek verf: ")
@@ -120,25 +121,54 @@ def main():
     
     # TODO 5: 
     if keuze == "Voorraad":
-    # Maak een lijst met alleen naam + nummer
         in_voorraad = [p for p in paints if p['aantal'] > 0]
         namen = [f"{p['kleurnaam']} ({p['volledig_nummer']})" for p in in_voorraad]
     
         geselecteerd = st.selectbox("Kies een verf:", namen)
-    st.dataframe(in_voorraad)
+        st.dataframe(in_voorraad)
     
     # TODO 6:
     if keuze == "Bestellijst":
-        if bestand is not None:
-            bestand = st.file_uploader("Upload een excel bestand", type=["csv"])
+        bestand = st.file_uploader("Upload een project CSV:", type=["csv"])  # EERST dit!
+    
+        if bestand is not None:  # DAN pas checken
             content = bestand.read().decode('utf-8')
             reader = csv.DictReader(io.StringIO(content))
+        
             must_buy = []
             for item in reader:
-                st.dataframe(must_buy)
-    #   - Laat gebruiker een project CSV kiezen
-    #   - Bereken de bestellijst met shopping_list()
-    #   - Toon wat papa moet kopen
+                volledig = item['volledig_nummer']
+                nodig = int(item['aantal_nodig'])
+            
+                gevonden = None
+                for p in paints:
+                    if p['volledig_nummer'] == volledig:
+                        gevonden = p
+                        break
+            
+                if gevonden is None:
+                    must_buy.append({
+                        'kleurnaam': item['kleurnaam'],
+                        'volledig_nummer': volledig,
+                        'status': 'NIET IN VOORRAAD',
+                        'nodig': nodig,
+                        'heeft': 0,
+                        'tekort': nodig
+                    })
+                elif gevonden['aantal'] < nodig:
+                    must_buy.append({
+                        'kleurnaam': item['kleurnaam'],
+                        'volledig_nummer': volledig,
+                        'status': 'TE WEINIG',
+                        'nodig': nodig,
+                        'heeft': gevonden['aantal'],
+                        'tekort': nodig - gevonden['aantal']
+                    })
+        
+        # dataframe PAS NA de loop!
+                    st.write(f"Te kopen: {len(must_buy)} verven")
+                    st.dataframe(must_buy)
+
     pass
 
 if __name__ == "__main__":
