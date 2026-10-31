@@ -122,7 +122,7 @@ def shopping_list(paints, project_file):
 #   st.dataframe(tabel)           → Mooie tabel tonen
 #   st.metric("Label", waarde)    → Cijfer tonen
 #   st.write("Tekst")             → Gewoon tekst tonen
-#   st.success/warning/error()    → Gekleurde melding
+#   st.info/warning()             → Gekleurde melding (blauw/oranje, kleurenblind-vriendelijk)
 #   st.tabs(["Tab1", "Tab2"])     → Tabs maken
 
 
@@ -237,7 +237,7 @@ def main():
             try:
                 nieuwe_voorraad = load_excel_inventory(excel_bestand)
                 st.session_state['uploaded_paints'] = nieuwe_voorraad
-                st.success(f"✅ Voorraad geladen: {len(nieuwe_voorraad)} verven!")
+                st.info(f"✅ Voorraad geladen: {len(nieuwe_voorraad)} verven!")
                 
                 in_voorraad = len([p for p in nieuwe_voorraad if p['aantal'] > 0])
                 niet_in_voorraad = len([p for p in nieuwe_voorraad if p['aantal'] == 0])
@@ -248,7 +248,7 @@ def main():
                 
                 st.write("Ga nu naar Zoeken, Voorraad of Bestellijst om de nieuwe data te gebruiken!")
             except Exception as e:
-                st.error(f"Fout bij het lezen van het bestand: {e}")
+                st.warning(f"⚠️ Fout bij het lezen van het bestand: {e}")
 
 
 if __name__ == "__main__":
