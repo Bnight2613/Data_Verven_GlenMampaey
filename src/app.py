@@ -10,6 +10,7 @@ Hieronder staan de GUI componenten die je moet invullen.
 import streamlit as st
 import csv
 import os
+import io
 
 # Pad naar de data bestanden
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
@@ -17,9 +18,9 @@ PROJECTS_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "project
 INVENTORY_CSV = os.path.join(DATA_DIR, "inventory.csv")
 
 
-# ============================================================
-# DEZE FUNCTIES KOMEN UIT main.py (kopieer ze hierheen)
-# ============================================================
+# ================================
+# DEZE FUNCTIES KOMEN UIT main.py 
+# ================================
 def load_inventory(filepath=INVENTORY_CSV):
     paints = []
     with open(filepath, 'r', encoding='utf-8') as f:
@@ -93,36 +94,52 @@ def shopping_list(paints, project_file):
 
 def main():
     # TODO 1: Zet een titel bovenaan
-    # Hint: st.title("Data Verven - Glen Mampaey")
+    st.title("Verfjes data")
     
-    # Laad de voorraad (deze is al voor je gedaan)
+    # Laad de voorraad
     paints = load_inventory()
-    
-    # TODO 2: Toon stats bovenaan (hoeveel in voorraad, hoeveel niet)
-    # Hint: st.metric("In voorraad", "119") en st.metric("Niet in voorraad", "306")
-    # Gebruik st.columns(2) om ze naast elkaar te zetten
     
     # TODO 3: Maak een zijbalk (sidebar) met een menu
     # Hint:
-    #   st.sidebar.title("Menu")
-    #   keuze = st.sidebar.radio("Kies:", ["Zoeken", "Voorraad", "Bestellijst"])
+    st.sidebar.title("Menu")
+    keuze = st.sidebar.radio("Kies:", ["Hoofd menu", "Zoeken", "Voorraad", "Bestellijst"])
+    # TODO 2: Toon stats bovenaan (hoeveel in voorraad, hoeveel niet)
+    in_voorraad = len([p for p in paints if p['aantal'] > 0])
+    niet_in_voorraad = len([p for p in paints if p['aantal'] == 0])
+    if keuze == "Hoofd menu":
+        st.metric("In voorraad", in_voorraad) 
+        st.metric("Niet in voorraad", niet_in_voorraad)
+        
+    # TODO 4: 
+    if keuze == "Zoeken":
+        query = st.text_input("Zoek verf: ")
+        if query:
+            results = search_paint(paints, query)
+            st.write(f"gevonde: {len(results)} verven")
+            st.dataframe(results)
     
-    # TODO 4: Als "Zoeken" gekozen is:
-    #   - Toon een zoekbalk (st.text_input)
-    #   - Zoek met search_paint()
-    #   - Toon resultaten in een tabel (st.dataframe)
+    # TODO 5: 
+    if keuze == "Voorraad":
+    # Maak een lijst met alleen naam + nummer
+        in_voorraad = [p for p in paints if p['aantal'] > 0]
+        namen = [f"{p['kleurnaam']} ({p['volledig_nummer']})" for p in in_voorraad]
     
-    # TODO 5: Als "Voorraad" gekozen is:
-    #   - Toon een dropdown om te filteren op reeks
-    #   - Toon alle verven in een tabel
+        geselecteerd = st.selectbox("Kies een verf:", namen)
+    st.dataframe(in_voorraad)
     
-    # TODO 6: Als "Bestellijst" gekozen is:
+    # TODO 6:
+    if keuze == "Bestellijst":
+        if bestand is not None:
+            bestand = st.file_uploader("Upload een excel bestand", type=["csv"])
+            content = bestand.read().decode('utf-8')
+            reader = csv.DictReader(io.StringIO(content))
+            must_buy = []
+            for item in reader:
+                st.dataframe(must_buy)
     #   - Laat gebruiker een project CSV kiezen
     #   - Bereken de bestellijst met shopping_list()
     #   - Toon wat papa moet kopen
-    
     pass
-
 
 if __name__ == "__main__":
     main()
