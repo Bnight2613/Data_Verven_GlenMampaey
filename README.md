@@ -9,6 +9,7 @@ Gemaakt voor papa om zijn verfvoorraad bij te houden en te weten welke verf hij 
 - 🔍 **Zoeken** — Zoek verf op kleurnaam, artikelnummer of volledig nummer
 - 📦 **Voorraad** — Toon alle verven die papa al heeft in een tabel
 - 📋 **Bestellijst** — Upload een project CSV en zie welke verf papa nog moet kopen + download de bestellijst
+- ✏️ **Voorraad aanpassen** — Pas het aantal per verf aan in een tabel en sla op; wordt direct teruggeschreven naar de Excel (`stock_verven_Datasheet.xlsx`, sheet `verfvoorraad`) én naar `inventory.csv`
 
 ## Data
 

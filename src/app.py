@@ -18,6 +18,7 @@ import io
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 PROJECTS_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "projects")
 INVENTORY_CSV = os.path.join(DATA_DIR, "inventory.csv")
+XLSX_PATH = os.path.join(DATA_DIR, "stock_verven_Datasheet.xlsx")
 
 
 # ================================
@@ -34,14 +35,22 @@ def load_inventory(filepath=INVENTORY_CSV):
 
 
 def load_excel_inventory(uploaded_file):
-    """Leest een Excel bestand en geeft de voorraad terug als lijst van dictionaries."""
-    # Sla het geüploade bestand tijdelijk op zodat openpyxl het kan lezen
-    content = uploaded_file.read()
-    wb = openpyxl.load_workbook(io.BytesIO(content), data_only=True)
+    """Leest een Excel bestand en geeft de voorraad terug als lijst van dictionaries.
+
+    Kan zowel een geüploade bestandsobject als een pad naar een .xlsx ontvangen.
+    """
+    if isinstance(uploaded_file, str):
+        # Gewoon een pad naar een lokaal Excel bestand
+        wb = openpyxl.load_workbook(uploaded_file, data_only=True)
+    else:
+        # Geüploade bestand: sla tijdelijk in geheugen op voor openpyxl
+        content = uploaded_file.read()
+        wb = openpyxl.load_workbook(io.BytesIO(content), data_only=True)
     ws = wb['verfvoorraad']
     
     paints = []
-    for row in ws.iter_rows(min_row=9, max_row=ws.max_row, values_only=True):
+    # Data begint op rij 8 (rij 7 = kop, rij 8 = 71.001 White)
+    for row in ws.iter_rows(min_row=8, max_row=ws.max_row, values_only=True):
         # Kolommen: B(1)=Kleurnaam, C(2)=Artikelnummer, D(3)=Reeks, 
         # E(4)=Volledig nummer, F(5)=In voorraad, G(6)=Aantal
         if row[1] and row[3]:
@@ -63,6 +72,42 @@ def load_excel_inventory(uploaded_file):
             })
     
     return paints
+
+
+def save_voorraad_to_csv(paints, filepath=INVENTORY_CSV):
+    """Schrijft de voorraad terug naar de CSV (spiegel van het Excel bestand)."""
+    kolommen = ['kleurnaam', 'artikelnummer', 'reeks', 'volledig_nummer',
+                'in_voorraad', 'aantal', 'bestellen', 'aantal_bestellen', 'gewenst_aantal']
+    with open(filepath, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=kolommen)
+        writer.writeheader()
+        for p in paints:
+            writer.writerow({k: p.get(k, '') for k in kolommen})
+
+
+def save_voorraad_to_excel(paints, filepath=XLSX_PATH):
+    """Schrijft de aantallen terug naar het sheet 'verfvoorraad' in het Excel bestand.
+
+    Kolommen: B=naam, E=nummer, F=in voorraad (Ja/Nee), G=aantal.
+    Data begint op rij 8 (rij 7 = kop).
+    """
+    if not os.path.exists(filepath):
+        raise FileNotFoundError(f"Excel bestand niet gevonden: {filepath}")
+    wb = openpyxl.load_workbook(filepath)
+    ws = wb['verfvoorraad']
+    aangepast = 0
+    for row in ws.iter_rows(min_row=8, max_row=ws.max_row):
+        volledig = row[4].value
+        if volledig is None:
+            continue
+        verf = next((p for p in paints if p['volledig_nummer'] == str(volledig).strip()), None)
+        if verf is None:
+            continue
+        row[5].value = 'Ja' if verf['aantal'] > 0 else 'Nee'
+        row[6].value = verf['aantal']
+        aangepast += 1
+    wb.save(filepath)
+    return aangepast
 
 
 def search_paint(paints, query):
@@ -130,16 +175,22 @@ def main():
     # TODO 1: Zet een titel bovenaan
     st.title("Verfjes data")
     
-    # Laad de voorraad (van CSV of van geüploade Excel)
+    # Laad de voorraad (van geüploade Excel, anders van Excel-bestand, fallback CSV)
     if 'uploaded_paints' in st.session_state:
         paints = st.session_state['uploaded_paints']
     else:
-        paints = load_inventory()
+        try:
+            if os.path.exists(XLSX_PATH):
+                paints = load_excel_inventory(XLSX_PATH)
+            else:
+                paints = load_inventory()
+        except Exception:
+            paints = load_inventory()
     
     # TODO 3: Maak een zijbalk (sidebar) met een menu
     # Hint:
     st.sidebar.title("Menu")
-    keuze = st.sidebar.radio("Kies:", ["Hoofd menu", "Zoeken", "Voorraad", "Bestellijst", "Excel uploaden"])
+    keuze = st.sidebar.radio("Kies:", ["Hoofd menu", "Zoeken", "Voorraad", "Bestellijst", "Voorraad aanpassen", "Excel uploaden"])
     # TODO 2: Toon stats bovenaan (hoeveel in voorraad, hoeveel niet)
     in_voorraad = len([p for p in paints if p['aantal'] > 0])
     niet_in_voorraad = len([p for p in paints if p['aantal'] == 0])
@@ -330,6 +381,68 @@ def main():
                         st.info("🔵 Je hebt alles in voorraad!")
 
                     
+
+    # Nieuw: Voorraad aanpassen (bewerkbaar, slaat op in Excel + CSV)
+    if keuze == "Voorraad aanpassen":
+        st.write("### 🎨 Voorraad aanpassen")
+        st.write("Pas hier aan hoeveel flessen van elke verf je hebt. Met **Opslaan** worden je wijzigingen blijkend opgeslagen in je Excel bestand (`data/stock_verven_Datasheet.xlsx`) én in de CSV.")
+        st.write("")
+
+        reeksen = ["Alle reeksen"] + sorted(set(p['reeks'] for p in paints))
+        reeks_filter = st.selectbox("Reeks:", reeksen)
+        zoekterm = st.text_input("Zoeken op naam of nummer:")
+
+        def past_filter(p):
+            if reeks_filter != "Alle reeksen" and p['reeks'] != reeks_filter:
+                return False
+            if zoekterm and zoekterm.lower() not in f"{p['kleurnaam']} {p['volledig_nummer']}".lower():
+                return False
+            return True
+
+        te_toonen = [p for p in paints if past_filter(p)]
+
+        if te_toonen:
+            df = pd.DataFrame({
+                'Kleurnaam': [p['kleurnaam'] for p in te_toonen],
+                'Nummer': [p['volledig_nummer'] for p in te_toonen],
+                'Reeks': [p['reeks'] for p in te_toonen],
+                'Aantal': [p['aantal'] for p in te_toonen]
+            })
+
+            bewerkt = st.data_editor(
+                df,
+                column_config={
+                    'Kleurnaam': st.column_config.TextColumn('Kleurnaam', disabled=True),
+                    'Nummer': st.column_config.TextColumn('Nummer', disabled=True),
+                    'Reeks': st.column_config.TextColumn('Reeks', disabled=True),
+                    'Aantal': st.column_config.NumberColumn('Aantal', min_value=0, step=1)
+                },
+                hide_index=True,
+                use_container_width=True
+            )
+
+            if st.button("💾 Opslaan in Excel en CSV", type="primary") and len(bewerkt) > 0:
+                try:
+                    # Werk de inheugenislijst bij (zo dat andere tabs direct de nieuwe aantallen zien)
+                    nieuwe_aantallen = dict(zip(bewerkt['Nummer'].astype(str).str.strip(), bewerkt['Aantal'].fillna(0).astype(int)))
+                    for p in paints:
+                        p['aantal'] = int(nieuwe_aantallen.get(p['volledig_nummer'], p['aantal']))
+
+                    aangepast = save_voorraad_to_excel(paints)
+                    save_voorraad_to_csv(paints)
+
+                    # Zet eventuele sessie-upload terug naar de opgeslagen data
+                    st.session_state.pop('uploaded_paints', None)
+
+                    st.success(f"✅ {aangepast} verfen opgeslagen in Excel (`stock_verven_Datasheet.xlsx`) en CSV!")
+                    st.caption("")
+                    in_voorraad = len([p for p in paints if p['aantal'] > 0])
+                    st.caption(f"Totale voorraad nu: {len(paints)} verfen, waarvan {in_voorraad} in voorraad.")
+                except Exception as e:
+                    st.error(f"⚠️ Fout bij het opslaan: {e}")
+
+        else:
+            st.info("Geen verven gevonden met deze filter/zoekterm.")
 
     # TODO 7: Excel uploaden om voorraad te updaten
     if keuze == "Excel uploaden":
