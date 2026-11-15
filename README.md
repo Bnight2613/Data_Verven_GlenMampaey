@@ -57,6 +57,13 @@ pip install -r requirements.txt
 
 ## Gebruik
 
+### Makkelijk starten (dubbelklik)
+
+Dubbelklik op **`Start_App.bat`** (in de hoofdmap van het project).
+Die start de web app en opent automatisch je browser.
+Je kunt er ook een snelkoppeling van op je bureaublad zetten:
+rechtermuisknop op het bestand → *Verzenden naar* → *Bureaublad (snelkoppeling maken)*.
+
 ### GUI versie (Streamlit)
 
 ```bash
@@ -64,7 +71,7 @@ pip install -r requirements.txt
 python -m streamlit run src/app.py
 ```
 
- Dit opent je browser met de applicatie.
+Dit opent je browser met de applicatie.
 
 ### Terminal versie
 
