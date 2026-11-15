@@ -13,10 +13,30 @@ import openpyxl
 import csv
 import os
 import io
+import shutil
 
 # Pad naar de data bestanden
-DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
+# De data staat buiten de app-map (in %USERPROFILE%\VerfjesData),
+# zodat een update van de app jouw eigen voorraaddata niet overschrijft.
+SEED_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
+DATA_DIR = os.path.join(os.path.expanduser("~"), "VerfjesData")
 PROJECTS_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "projects")
+
+
+def ensure_user_data():
+    """Zorgt dat de user-data map bestaat en bij de eerste start
+    de startdata (met aantallen op 0) erheen kopieert.
+    Bestaande bestanden blijven onaangetast, ook bij een update."""
+    os.makedirs(DATA_DIR, exist_ok=True)
+    for naam in ["inventory.csv", "stock_verven_Datasheet.xlsx"]:
+        src = os.path.join(SEED_DIR, naam)
+        dst = os.path.join(DATA_DIR, naam)
+        if not os.path.exists(dst) and os.path.exists(src):
+            shutil.copy2(src, dst)
+
+
+ensure_user_data()
+
 INVENTORY_CSV = os.path.join(DATA_DIR, "inventory.csv")
 XLSX_PATH = os.path.join(DATA_DIR, "stock_verven_Datasheet.xlsx")
 

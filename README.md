@@ -28,16 +28,29 @@ De data komt uit een Excel bestand met 425 verven van verschillende series:
 ### Voorraad stats
 
 - Totaal: 425 verven
-- In voorraad: 119
-- Niet in voorraad: 306
+- De startdata staat op **0 / Nee** — vul zelf in wat er in je voorraad zit via de tab *Voorraad aanpassen*.
+
+### Waar staat mijn data?
+
+Je eigen voorraaddata staat **buiten de app-map**, in:
+
+```
+C:\Users\<jouw-gebruikersnaam>\VerfjesData\
+```
+
+Bij de eerste start kopieert de app de startdata (aantallen op 0) automatisch naar die map.
+Daardoor gaat je data **niet** verloren bij een update: je hoeft alleen de app-map te vervangen,
+je voorraad blijft in `VerfjesData` staan.
+Om je data te back-uppen: kopieer de map `VerfjesData` naar een veilige plek.
 
 ## Structuur
 
 ```
 Data_Verven_GlenMampaey/
-├── data/
-│   ├── stock_verven_Datasheet.xlsx   # Originele Excel
-│   └── inventory.csv                 # CSV export (425 verven)
+├── data/                             # Alleen startdata (aantallen op 0) — niet je eigen data!
+│   ├── stock_verven_Datasheet.xlsx   # Start-Excel
+│   └── inventory.csv                 # Start-CSV (425 verven, allemaal 0)
+# Je eigen data staat in: %USERPROFILE%\VerfjesData\
 ├── projects/                         # Project bestanden (welke verf nodig per model)
 │   └── example_project.csv            # Voorbeeld project
 ├── src/

@@ -9,10 +9,24 @@ Lees de comments bij elke functie voor uitleg.
 
 import csv
 import os
+import shutil
 
 # Pad naar de data bestanden
-DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
+# De data staat buiten de app-map (in %USERPROFILE%\VerfjesData),
+# zodat een update van de app jouw eigen voorraaddata niet overschrijft.
+SEED_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
+DATA_DIR = os.path.join(os.path.expanduser("~"), "VerfjesData")
 PROJECTS_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "projects")
+
+# Bij de eerste start de startdata (aantallen op 0) naar de user-data map kopiëren.
+# Bestaande bestanden blijven onaangetast, ook bij een update.
+os.makedirs(DATA_DIR, exist_ok=True)
+for _naam in ["inventory.csv", "stock_verven_Datasheet.xlsx"]:
+    _src = os.path.join(SEED_DIR, _naam)
+    _dst = os.path.join(DATA_DIR, _naam)
+    if not os.path.exists(_dst) and os.path.exists(_src):
+        shutil.copy2(_src, _dst)
+
 INVENTORY_CSV = os.path.join(DATA_DIR, "inventory.csv")
 
 
