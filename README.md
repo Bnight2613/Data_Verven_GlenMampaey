@@ -1,19 +1,23 @@
-# Data Verven - Glen Mampaey
+# Data Verven — Glen Mampaey
 
-Verf inventaris en bestellijst applicatie voor scale modeling.
-Gemaakt voor papa om zijn verfvoorraad bij te houden en te weten welke verf hij nog moet kopen per project.
+Een applicatie voor het bijhouden van de verfvoorraad en het opstellen van een bestellijst
+bij het scale modeling van modellen. Het programma vergelijkt de voorraad met de vereiste
+verven per project en geeft aan welke verfen nog aangeschaft moeten worden.
 
-## Functies
+## Functionaliteit
 
-- 🏠 **Hoofdmenu** — Overzicht van voorraad (hoeveel in/uit voorraad, per reeks)
-- 🔍 **Zoeken** — Zoek verf op kleurnaam, artikelnummer of volledig nummer
-- 📦 **Voorraad** — Toon alle verven die papa al heeft in een tabel
-- 📋 **Bestellijst** — Upload een project CSV en zie welke verf papa nog moet kopen + download de bestellijst
-- ✏️ **Voorraad aanpassen** — Pas het aantal per verf aan in een tabel en sla op; wordt direct teruggeschreven naar de Excel (`stock_verven_Datasheet.xlsx`, sheet `verfvoorraad`) én naar `inventory.csv`
+- **Hoofdmenu** — Overzicht van de voorraad, onderverdeeld per reeks.
+- **Zoeken** — Verf zoeken op kleurnaam, artikelnummer of volledig nummer.
+- **Voorraad** — Alle verfen in de voorraad, weergegeven in een tabel.
+- **Bestellijst** — Upload een project-CSV en zie welke verfen nog aangeschaft moeten worden;
+  de bestellijst kan worden gedownload.
+- **Voorraad aanpassen** — Aantallen per verf aanpassen in een tabel en opslaan.
+  De wijzigingen worden teruggeschreven naar zowel
+  `stock_verven_Datasheet.xlsx` (sheet `verfvoorraad`) als `inventory.csv`.
 
 ## Data
 
-De data komt uit een Excel bestand met 425 verven van verschillende series:
+De data bestaat uit een Excel-bestand met 425 verfen uit verschillende series.
 
 | Reeks | Prefix |
 |-------|--------|
@@ -25,77 +29,71 @@ De data komt uit een Excel bestand met 425 verven van verschillende series:
 | Primer 17ml | 70.xxx |
 | Enamel Revell | REV-xxx |
 
-### Voorraad stats
+De startdata staat standaard op `0` / `Nee`. Vul via de tab *Voorraad aanpassen*
+zelf in welke verfen in de voorraad aanwezig zijn.
 
-- Totaal: 425 verven
-- De startdata staat op **0 / Nee** — vul zelf in wat er in je voorraad zit via de tab *Voorraad aanpassen*.
+### Locatie van de eigen data
 
-### Waar staat mijn data?
-
-Je eigen voorraaddata staat **buiten de app-map**, in:
+De eigen voorraaddata wordt opgeslagen buiten de app-map, op de volgende locatie:
 
 ```
-C:\Users\<jouw-gebruikersnaam>\VerfjesData\
+C:\Users\<gebruikersnaam>\VerfjesData\
 ```
 
-Bij de eerste start kopieert de app de startdata (aantallen op 0) automatisch naar die map.
-Daardoor gaat je data **niet** verloren bij een update: je hoeft alleen de app-map te vervangen,
-je voorraad blijft in `VerfjesData` staan.
-Om je data te back-uppen: kopieer de map `VerfjesData` naar een veilige plek.
+Bij de eerste start kopieert de applicatie de startdata (aantallen op `0`) automatisch
+naar deze map. Hierdoor blijft de eigen voorraad behouden bij een update: vervang alleen
+de app-map, de voorraaddata blijft in `VerfjesData` staan. Voor een back-up is het
+voldoende om de map `VerfjesData` te kopiëren naar een veilige locatie.
 
-## Structuur
+## Projectstructuur
 
 ```
 Data_Verven_GlenMampaey/
-├── data/                             # Alleen startdata (aantallen op 0) — niet je eigen data!
+├── data/                             # Alleen startdata (aantallen op 0)
 │   ├── stock_verven_Datasheet.xlsx   # Start-Excel
-│   └── inventory.csv                 # Start-CSV (425 verven, allemaal 0)
-# Je eigen data staat in: %USERPROFILE%\VerfjesData\
-├── projects/                         # Project bestanden (welke verf nodig per model)
-│   └── example_project.csv            # Voorbeeld project
+│   └── inventory.csv                 # Start-CSV (425 verfen, allemaal 0)
+├── projects/                         # Projectbestanden (verf per model)
+│   └── example_project.csv           # Voorbeeldproject
 ├── src/
-│   ├── main.py                       # Terminal versie (menu)
-│   └── app.py                        # Streamlit GUI versie
+│   ├── main.py                       # Terminalversie (menu)
+│   └── app.py                        # Streamlit-versie (web GUI)
 ├── .gitignore
 ├── README.md
-└── requirements.txt
+├── requirements.txt
+└── Start_App.bat                     # Start de web-app (dubbelklik)
+
+# De eigen voorraaddata staat in: %USERPROFILE%\VerfjesData\
 ```
 
 ## Installatie
 
 ```bash
-# Installeer dependencies
 pip install -r requirements.txt
 ```
 
 ## Gebruik
 
-### Makkelijk starten (dubbelklik)
+### Web-app starten
 
-Dubbelklik op **`Start_App.bat`** (in de hoofdmap van het project).
-Die start de web app en opent automatisch je browser.
-Je kunt er ook een snelkoppeling van op je bureaublad zetten:
-rechtermuisknop op het bestand → *Verzenden naar* → *Bureaublad (snelkoppeling maken)*.
+Dubbelklik op `Start_App.bat` in de hoofdmap van het project. De web-app start en de
+browser opent automatisch. Er kan een snelkoppeling voor worden aangemaakt via:
+rechtermuisknop op het bestand, *Verzenden naar*, *Bureaublad (snelkoppeling maken)*.
 
-### GUI versie (Streamlit)
+Alternatief via de terminal:
 
 ```bash
-# Start de web app
 python -m streamlit run src/app.py
 ```
 
-Dit opent je browser met de applicatie.
-
-### Terminal versie
+### Terminalversie
 
 ```bash
-# Start het programma in de terminal
 python src/main.py
 ```
 
-## Project CSV formaat
+## Project-CSV formaat
 
-Maak een CSV bestand aan in de `projects/` map voor elk model dat papa wil bouwen:
+Maak voor elk model een CSV-bestand aan in de `projects/` map met de benodigde verfen.
 
 ```csv
 kleurnaam,reeks,volledig_nummer,aantal_nodig
@@ -106,16 +104,17 @@ Model Air - Blue,Model Air,71.004,3
 
 | Kolom | Beschrijving | Voorbeeld |
 |-------|-------------|----------|
-| kleurnaam | Naam van de verf | Model Air - White |
-| reeks | Welke serie | Model Air |
-| volledig_nummer | Artikelnummer | 71.001 |
-| aantal_nodig | Hoeveel potjes nodig | 2 |
+| `kleurnaam` | Naam van de verf | Model Air - White |
+| `reeks` | Serie | Model Air |
+| `volledig_nummer` | Artikelnummer | 71.001 |
+| `aantal_nodig` | Aantal benodigde verfen | 2 |
 
-Upload dit bestand in de app via de Bestellijst tab om te zien wat papa nog moet kopen.
+Upload het bestand via de tab *Bestellijst* om te zien welke verfen nog aangeschaft
+moeten worden.
 
-## Gemaakt met
+## Gebruikte technologie
 
-- **Python** — Programmeertaal
-- **Streamlit** — Web GUI framework
-- **openpyxl** — Excel bestanden lezen
-- **pandas** — Data verwerking
+- **Python** — programmeertaal
+- **Streamlit** — web GUI-framework
+- **openpyxl** — lezen en schrijven van Excel-bestanden
+- **pandas** — dataverwerking
