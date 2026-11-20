@@ -1,5 +1,8 @@
 # Data Verven — Glen Mampaey
 
+## Streamlit Email
+Er zal eerst gevraagt worden voor een email deze moet u ingeven om verder te kunnen.
+
 Een applicatie voor het bijhouden van de verfvoorraad en het opstellen van een bestellijst
 bij het scale modeling van modellen. Het programma vergelijkt de voorraad met de vereiste
 verven per project en geeft aan welke verfen nog aangeschaft moeten worden.
